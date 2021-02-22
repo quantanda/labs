@@ -29,12 +29,9 @@ begin
 	writeln('IsPointInCircle? ', IsPointInCircle(x, y, 4, 4, 3));
 	writeln('IsPointInRhomb? ', IsPointInRhomb(x, y, 4, 4, 1, 3));
 	
-	if (IsPointInCircle(x, y, 4, 4, 3) and 
-			not IsPointInRhomb(x, y, 4, 4, 1, 3))
+	if (IsPointInCircle(x, y, 4, 4, 3) and not IsPointInRhomb(x, y, 4, 4, 1, 3))
 	then
-	begin	
 		writeln('yeah!.. the point is located inside the shape!');
-	end
 	else
 		writeln('nope!');
 	

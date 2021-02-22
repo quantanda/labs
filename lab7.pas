@@ -12,7 +12,7 @@ var
 	arr: arr_t;
 begin
 	randomize;
-	writeln('Origin array:');// write(chr(9));
+	writeln('Origin array:');
 	for i:=1 to n do 
 	begin
 		arr[i] := random*100;
@@ -22,6 +22,7 @@ begin
 
 	for i:=1 to n do
 	begin
+		// ищем меньший элемент
 		fmin := arr[i];
 		nmin := -1;
 		for j:=i to n do
@@ -30,7 +31,7 @@ begin
 				fmin := arr[j];
 				nmin := j; 
 			end;
-
+		// если меньший элемент найден
 		if nmin <> -1 then 
 		begin
 			tmp := arr[i];
@@ -39,7 +40,7 @@ begin
 		end;
 	end;
 
-	writeln('Sorted array:');// write(chr(9));
+	writeln('Sorted array:');
 	for i:=1 to n do 
 		write(arr[i]:0:2, ' ');
 	writeln;
