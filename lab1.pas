@@ -11,4 +11,5 @@ begin
 	a := sqrt(power(b, 2) + power(y, 2));
 	tmp := a*b*y;
 	q := log10(tmp) + power(10, -tmp);
+	writeln(q:8:20);
 end.
