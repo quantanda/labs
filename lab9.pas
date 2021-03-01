@@ -6,7 +6,7 @@ type
 	vec = array[1..4] of real;
 	mat = array[1..4, 1..4] of real;
 const 
-//	C: vec = (-1.0,  6.0, -1.8, 6.7); { fucking divising by zero C[1] }
+//	C: vec = (-1.0,  6.0, -1.8, 6.7); { fucking division by zero C[1] }
 	C: vec = (-1.1,  6.0, -1.8, 6.7);
 	D: vec = ( 0.7, -1.1,  5.1, 6.0);
 	E: vec = (-0.09, 10.0, 2.2, 4.5);
