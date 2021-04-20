@@ -1,4 +1,4 @@
-program lab5;
+program lab5_v10;
 
 uses math;
 
@@ -12,10 +12,7 @@ begin
 	writeln('-------------------------------');
 	writeln('|--X--|--ln(1/x)--|--lg(1/x)--|');
 	repeat
-		write('| ', x:0:2);
-		write('|  ', ln(1/x):0:5, '  ');
-		write('|  ', log10(1/x):0:5, '  ');
-		writeln('|');
+		writeln('|', x:5:2, '|', ln(1/x):9:5, '  |', log10(1/x):9:5, '  |');
 		x:=x+i;
 	until not (x - e < 1e-2);
 	writeln('-------------------------------');

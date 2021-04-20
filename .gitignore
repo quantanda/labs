@@ -4,3 +4,6 @@
 *.cfg
 *.dsk
 *.o
+*.pdf
+*.log
+*.docx
