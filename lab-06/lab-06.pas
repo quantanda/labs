@@ -1,15 +1,14 @@
-program lab6;
+program lab6_v10;
 
 uses math;
 
 function fact(j: Longint): Longint;
 var
-	It: integer;
+	It: Longint;
 begin
-	for It := 0 to j do
+	for It := 1 to j do
 	begin
-		if (It=0) or (It=1) 
-		then
+		if It=1 then
 			fact:=1
 		else
 			fact:=fact*It;
@@ -17,25 +16,22 @@ begin
 end;
 
 const 
-	esp = 1e-4;
+	eps = 1e-4;
 var
-	SumMaj, SumMin, p: real;
-	i, j: integer;
+	SumMaj, SumMin, p: Real;
+	i, j: Longint;
 begin
-	SumMaj:=0.0;
+	SumMaj:=0;
 	for i:=1 to 10 do
 	begin
 		j:=1;
-		SumMin:=0.0;
-		writeln('i=', i);
+		SumMin:=0;
 		repeat
-			
 			p := (i*i + 0.5*j)/fact(j);
 			SumMin := SumMin + p;
-			writeln('	j=', j);
 			j:=j+1;
-		until not (abs(p) > esp);
+		until not (abs(p) > eps);
 		SumMaj := SumMaj + cos(2*i)*SumMin;
 	end;
-	writeln('BigFuckingSum=', SumMaj:0:4);
+	writeln('Sum=', SumMaj:0:4);
 end.

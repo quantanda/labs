@@ -10,5 +10,5 @@ begin
 	begin
 		Q := Q + (sqrt(1/i) + i) / sqrt(3*i-1);
 	end;
-	writeln(Q:8:6);
+	writeln('Result of sum = ', Q:0:4);
 end.
