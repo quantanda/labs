@@ -7,16 +7,16 @@ const
 	Nc = 4; 
 	Ne = 3; 
 
-	A: array[1..Na] of real = (0.12, 0.8, 0.2, 0.38, 0.11);
-	C: array[1..Nc] of real = (0.85, 1.4, 1.12, 3.24);
-	E: array[1..Ne] of real = (2.2, 3.1, 1.8);
+	A: array[1..Na] of Real = (0.12, 0.8, 0.2, 0.38, 0.11);
+	C: array[1..Nc] of Real = (0.85, 1.4, 1.12, 3.24);
+	E: array[1..Ne] of Real = (2.2, 3.1, 1.8);
 var 
-	X, Y, Z: real;
+	X, Y, Z: Real;
 
-function F(sw: string; N: integer): real;
+function F(sw: String; N: Integer): Real;
 var
-	i, j: integer;
-	sum, product, tmp: real;
+	i, j: Integer;
+	sum, product, tmp: Real;
 begin
 	sum:=0;
 	for i:=1 to N do
