@@ -1,10 +1,10 @@
-program lab4_v10;
+program lab4_10;
 
-uses math;
-
+uses
+	Math;
 const 
-	esp = 1e-5;
-	x = 2.15;
+	eps: Real = 1e-5;
+	x: Real = 2.15;
 var
 	Q, p, f: Real;
 	i, j: Integer;
@@ -12,18 +12,12 @@ begin
 	j := 1;
 	Q := 0;
 	repeat
-		// calculate factorial
-		for i := 1 to j do
-		begin
-			if i = 1 then
-				f := 1
-			else
-				f := f*i;
-		end;
-		p := ln(j*x) / f;
-		
+		f := 1;
+		for i := 2 to j do
+			f := f*i;
+		p := Ln(j*x) / f;
 		Q := Q + p;
 		Inc(j);
-	until not (abs(p) > esp);
-	writeln(Q:0:4);
+	until not (Abs(p) > eps);
+	WriteLn('Sum = ', Q:0:5);
 end.

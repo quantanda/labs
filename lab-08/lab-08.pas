@@ -1,6 +1,7 @@
-program lab8_v10;
+program lab8_10;
 
-uses math;
+uses 
+	Math;
 
 const 
 	Na = 5; 
@@ -16,35 +17,33 @@ var
 function F(sw: String; N: Integer): Real;
 var
 	i, j: Integer;
-	sum, product, tmp: Real;
+	Sum, Product, Tmp: Real;
 begin
-	sum:=0;
+	Sum := 0;
 	for i:=1 to N do
 	begin
-		product:=1;
+		Product := 1;
 		for j:=1 to i do
 		begin
-			tmp:=0;
+			Tmp := 0;
 			case sw of
-			'X': tmp := i / A[j];
-			'Y': tmp := i / (C[j] + 1);
-			'Z': tmp := i / (E[j] + 2);
+			'X': Tmp := i / A[j];
+			'Y': Tmp := i / (C[j] + 1);
+			'Z': Tmp := i / (E[j] + 2);
 			end;
-			product := product * tmp;
+			Product := Product * Tmp;
 		end;
-		sum := sum + product;
+		Sum := Sum + Product;
 	end;
-	F:=sum;
+	F := Sum;
 end;
 
 begin
-
-
 	X := F('X', Na);
 	Y := F('Y', Nc);
 	Z := F('Z', Ne);
 
-	writeln('X: ', X:0:6);
-	writeln('Y: ', Y:0:6);
-	writeln('Z: ', Z:0:6);
+	WriteLn('X: ', X:0:6);
+	WriteLn('Y: ', Y:0:6);
+	WriteLn('Z: ', Z:0:6);
 end.

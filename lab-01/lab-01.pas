@@ -1,15 +1,13 @@
-program lab1_v10;
-
-uses math;
-
+program lab1_10;
+uses
+	Math;
 const 
-	y: real = 1.33;
+	y: Real = 1.33;
 var 
-	b, a, q, tmp: real;
+	b, a, q: Real;
 begin
-	b := 0.8 * power(y, 3);
-	a := sqrt(power(b, 2) + power(y, 2));
-	tmp := a*b*y;
-	q := log10(tmp) + power(10, -tmp);
+	b := 0.8 * Power(y, 3);
+	a := Sqrt(Sqr(b) + Sqr(y));
+	q := Log10(a*b*y) + Power(10, -(a*b*y));
 	WriteLn(q:0:6);
 end.

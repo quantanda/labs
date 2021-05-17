@@ -1,47 +1,62 @@
-program lab7;
+program lab7_10;
 
-uses math;
-
+uses
+	Math;
 const
 	n = 14;
 type
-	arr_t = array[1..n] of real;
+	TArr = array[1..n] of Char;
+
+procedure FillArray(var SrcArr: TArr);
 var
-	fmin, tmp: real;
-	i, j, nmin: integer;
-	arr: arr_t;
+	i: Integer;
 begin
-	randomize;
-	writeln('Origin array:');
+	Randomize;
+	WriteLn('Origin array:');
 	for i:=1 to n do 
 	begin
-		arr[i] := random*100;
-		write(arr[i]:0:2, ' ');
+		SrcArr[i] := Chr(65 + Random(26));
+		Write(SrcArr[i]);
 	end;
-	writeln;
+	WriteLn;
+end;
 
+procedure PrintSortedArray(SrcArr: TArr);
+var
+	i: Integer;
+begin
+	WriteLn('Sorted array:');
+	for i:=1 to n do 
+		Write(SrcArr[i]);
+	WriteLn;
+end;
+
+var
+	fMin, tmp: Char; 
+	i, j, nMin: Integer;
+	Arr: TArr;
+begin
+	FillArray(Arr);
+	// собственно сортировка
 	for i:=1 to n do
 	begin
 		// ищем меньший элемент
-		fmin := arr[i];
-		nmin := -1;
+		fMin := Arr[i];
+		nMin := -1;
 		for j:=i to n do
-			if arr[j] < fmin then
+			if Arr[j] > fMin then
 			begin
-				fmin := arr[j];
-				nmin := j; 
+				fMin := Arr[j];
+				nMin := j; 
 			end;
 		// если меньший элемент найден
-		if nmin <> -1 then 
+		if nMin <> -1 then 
 		begin
-			tmp := arr[i];
-			arr[i] := fmin;
-			arr[nmin] := tmp;
+			tmp := Arr[i];
+			Arr[i] := fMin;
+			Arr[nMin] := tmp;
 		end;
 	end;
-
-	writeln('Sorted array:');
-	for i:=1 to n do 
-		write(arr[i]:0:2, ' ');
-	writeln;
+	// вывод отсортированного массива
+	PrintSortedArray(Arr);
 end.
