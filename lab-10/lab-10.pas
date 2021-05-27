@@ -1,4 +1,4 @@
-program lab10_v10;
+﻿program lab10_10;
 
 uses
 	Math, Crt;
@@ -7,21 +7,21 @@ const
 var 
 	Numerals: String = '0123456789ABCDEFGHIJKLMNOP';
 	Input: String;
-	I, J, N: Integer;
+	i, j, N: Integer;
 	Num: Extended = 0;
 begin
-	Write('Enter a number in a ', Base, 'th number system: ');
+	Write('Enter the number in a ', Base, 'th number system: ');
 	ReadLn(Input);
 	N := Length(Input);
-	for I := 1 to N do
+	for i := 1 to N do
 	begin
-		J := Pos(UpCase(Input[I]), Numerals);
-		if J = 0 then
+		j := Pos(UpCase(Input[i]), Numerals);
+		if j = 0 then
 		begin
 			WriteLn('Error!');
 			Exit;
 		end;
-		Num := Num + (J-1)*Power(Base, N - I);
+		Num := Num + (j-1)*Power(Base, N - i);
 	end;
 	WriteLn('The number in a 10th system: ', Num:0:0);
 end.

@@ -4,21 +4,21 @@ uses Crt;
 
 type 
 	TList = record
-		data: Integer;
-		prev, next: ListPtr;
+		data: Real;
+		prev, next: ^TList;
 	end;
 	ListPtr = ^TList;
  
 procedure ViewHelp;
 begin
 	WriteLn('Help:');
-	WriteLn('"l" - просмотр влево');
-	WriteLn('"r" - просмотр вправо');
-	WriteLn('"i" - вставить элемент');
-	WriteLn('"d" - удалить элемент');
-	WriteLn('"w" - записать список в файл');
-	WriteLn('"h" - справка');
-	WriteLn('"e" - выход из программы');
+	WriteLn('"l" - Step left');
+	WriteLn('"r" - Step right');
+	WriteLn('"i" - Insert');
+	WriteLn('"d" - Delete');
+	WriteLn('"w" - Write to file');
+	WriteLn('"h" - Help');
+	WriteLn('"e" - Exit from that Hell');
 end;
  
 procedure CreateList(var List: ListPtr);
@@ -41,7 +41,7 @@ begin
 	TraverseFirst(tmp);
 	while tmp <> nil do
 	begin
-		Write(tmp^.data, ' ');
+		Write(tmp^.data:0:4, ' ');
 		if tmp = List then write('| ');
 		tmp := tmp^.next;
 	end;
@@ -51,9 +51,9 @@ end;
 procedure ListInsert(var List: ListPtr); 
 var
 	node: ListPtr;
-	x: integer;
+	x: Real;
 begin
-	Write('Введите значение: ');
+	Write('Enter the value: ');
 	ReadLn(x);
 	New(node);
 	node^.next := List^.next;
@@ -127,33 +127,35 @@ procedure write_to_file(List:ListPtr);
       tmp:=tmp^.next;
     end;
     close(f);
-    WriteLn('Запись в файл осуществлена.');
+    WriteLn('File has been writen.');
   end;
  
 var List:ListPtr;
 input:char;
 
 begin
-WriteLn('Для начала вам нужно создать список.');
-  WriteLn('Для этого нажмите букву "c".');
-  if ReadKey <> 'c' then exit
-  else
-  WriteLn('Происходит создание списка.');
-  CreateList(List);
-  ViewHelp;
-  repeat
-    ViewList(List);
-    input:=ReadKey;
-    case input of
-      'e': WriteLn('Завершение программы.');
-      'l': go_left(List);
-      'r': go_right(List);
-      'd': ListDelete(List);
-      'i': ListInsert(List);
-      'w': write_to_file(List);
-      'h': ViewHelp
+{ 
+	WriteLn('Plz, just create this fucking linked list:))))))))))))))');
+  	WriteLn('Press #c.');
+  	if ReadKey <> 'c' then 
+  		Exit;
+ }
+  	CreateList(List);
+  	ViewHelp;
+	repeat
+		ViewList(List);
+		input := ReadKey;
+		ClrScr;
+		case input of
+		'e': WriteLn('We finally leave this hell.');
+      	'l': StepLeft(List);
+      	'r': StepRight(List);
+      	'd': ListDelete(List);
+      	'i': ListInsert(List);
+      	'w': write_to_file(List);
+      	'h': ViewHelp
         else
-      WriteLn('Неверный ввод. "h" - справка.');
-      end;
-  until input='e';
+      		WriteLn('No such command! Type "h" for help.');
+      	end;
+	until input='e';
 end.
